@@ -1,20 +1,24 @@
+import os  # <-- REQUIRED import
+
 # API Configuration
-API_ID = int(os.environ.get("API_ID", ""))
+API_ID = int(os.environ.get("API_ID", 0))
 API_HASH = os.environ.get("API_HASH", "")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 
 CREDIT = os.environ.get("CREDIT", "✖️ GABBAR ✖️")
+
 # MongoDB Configuration
 DATABASE_NAME = os.environ.get("DATABASE_NAME", "GABBAR")
 DATABASE_URL = os.environ.get("DATABASE_URL", "")
 MONGO_URL = DATABASE_URL  # For auth system
 
 # Owner and Admin Configuration
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
-ADMINS = [int(x) for x in os.environ.get("ADMINS", "").split()]  # Default to owner ID
+OWNER_ID = int(os.environ.get("OWNER_ID", 0))
+ADMINS = [int(x) for x in os.environ.get("ADMINS", "").split()] if os.environ.get("ADMINS") else []
 
 # Channel Configuration
 PREMIUM_CHANNEL = ""
+
 # Thumbnail Configuration
 THUMBNAILS = list(map(str, os.environ.get("THUMBNAILS", "").split()))
 
@@ -56,7 +60,3 @@ Please contact the admin @ItsUGBot to get access.</blockquote>""",
 
 <blockquote>Use format: {format}</blockquote>"""
 }
-
-
-
-
